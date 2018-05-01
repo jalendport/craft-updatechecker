@@ -14,10 +14,10 @@ use lukeyouell\updatechecker\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
-use craft\services\Plugins;
 use craft\events\PluginEvent;
-use craft\web\UrlManager;
 use craft\events\RegisterUrlRulesEvent;
+use craft\helpers\UrlHelper;
+use craft\services\Plugins;
 
 use yii\base\Event;
 
@@ -52,6 +52,7 @@ class UpdateChecker extends Plugin
             Plugins::EVENT_AFTER_INSTALL_PLUGIN,
             function (PluginEvent $event) {
                 if ($event->plugin === $this) {
+                    Craft::$app->getResponse()->redirect(UrlHelper::cpUrl('settings/plugins/update-checker'))->send();
                 }
             }
         );
