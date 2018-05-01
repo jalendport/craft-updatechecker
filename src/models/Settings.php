@@ -25,22 +25,22 @@ class Settings extends Model
     // Public Properties
     // =========================================================================
 
-    /**
-     * @var string
-     */
+    public $email = true;
+
     public $toEmail;
+
+    public $slack = false;
+
+    public $slackWebhook;
 
     // Public Methods
     // =========================================================================
 
-    /**
-     * @inheritdoc
-     */
     public function rules()
     {
         return [
-            [['toEmail'], 'required'],
-            [['toEmail'], 'string'],
+            [['email', 'slack'], 'boolean'],
+            [['toEmail', 'slackWebhook'], 'string'],
         ];
     }
 }
