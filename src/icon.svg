@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
+  <defs>
+    <style>
+      .updatechecker-cls-1 { fill: #791e94; }
+      .updatechecker-cls-2 { fill: #fff; }
+    </style>
+  </defs>
+  <title>updatechecker-icon</title>
+  <circle class="updatechecker-cls-1" cx="240" cy="240" r="240"/>
+  <path class="updatechecker-cls-2" d="M240,360a24.69,24.69,0,0,0,24.62-24.62H215.38A24.62,24.62,0,0,0,240,360Zm73.85-73.85V224.62c0-37.79-20.19-69.42-55.39-77.79v-8.37a18.46,18.46,0,1,0-36.92,0v8.37c-35.32,8.37-55.39,39.88-55.39,77.79v61.53l-24.61,24.62v12.31H338.46V310.77Z"/>
+</svg>
