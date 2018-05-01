@@ -2,7 +2,7 @@
     "name": "lukeyouell/craft-updatechecker",
     "description": "Automated update checker that notifies you of any pending updates",
     "type": "craft-plugin",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "keywords": [
         "craft",
         "cms",
