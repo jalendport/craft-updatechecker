@@ -28,9 +28,9 @@ This plugin will check for package updates at regular intervals and notify you o
 
 ## Configuring Update Checker
 
-### Endpoint
+### Endpoint URL
 
-You can find your endpoint url located on the plugin settings page, which will look something like this:
+You can find your endpoint url located in the plugin settings page, which will look like this:
 
 ```
 https://www.yoursite.co.uk/actions/update-checker/check
@@ -38,15 +38,15 @@ https://www.yoursite.co.uk/actions/update-checker/check
 
 ### Cron Job
 
-This plugin relies on the controller being hit on a regular basis, this will require a cron job. If you aren't familiar with setting up cron jobs I highly recommend using a service such as [SetCronJob](https://www.setcronjob.com)
+This plugin relies on the controller being hit on a regular basis, which will require a cron job. If you aren't familiar with setting up cron jobs I highly recommend using a service such as [SetCronJob](https://www.setcronjob.com).
 
-Note that all HTTP requests must contain the following headers:
+Please note that all HTTP requests must contain the following headers:
 
 | Header Name | Header Value |
 | ----------- | ------------ |
 | `Accept` | `application/json` |
 
-You may set the cron job to check for updates as often as you like.
+Feel free to set the cron job to check for updates as often as you like.
 
 ## Overriding Plugin Settings
 
