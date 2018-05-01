@@ -1,0 +1,48 @@
+{% set cms = updates.updates.cms %}
+{% set plugins = updates.updates.plugins %}
+
+Hey,
+
+There are {{ updates.total }} package updates available for {{ system.name }}.
+
+-----
+
+### {{ cms.name }}
+
+{% if cms.releases %}
+
+{% for release in cms.releases %}
+{{ release.critical ? '⚠️' : '▪️' }} {{ release.version }} ({{ release.date|date('jS F Y') }})
+
+{% endfor %}
+
+{% else %}
+
+✅ Up-to-date!
+
+{% endif %}
+
+-----
+
+### Plugins
+
+{% for plugin in plugins %}
+#### {{ plugin.name }}
+
+{% if plugin.releases %}
+
+{% for release in plugin.releases %}
+{{ release.critical ? '⚠️' : '▪️' }} {{ release.version }} ({{ release.date|date('jS F Y') }})
+
+{% endfor %}
+
+{% else %}
+
+✅ Up-to-date!
+
+{% endif %}
+{% endfor %}
+
+-----
+
+[View updates]({{ cpUrl }})

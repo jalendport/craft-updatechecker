@@ -1,0 +1,52 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Update Checker plugin for Craft CMS 3.x
+ *
+ * Update Checker Settings.twig
+ *
+ * @author    Luke Youell
+ * @copyright Copyright (c) 2018 Luke Youell
+ * @link      https://github.com/lukeyouell
+ * @package   UpdateChecker
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% macro configWarning(setting) -%}
+  {% set setting = '<code>' ~ setting ~ '</code>' %}
+  {{ 'This is being overridden by the {setting} config setting in your {file} config file.'|t('update-checker', {
+        setting: setting,
+        file:    'update-checker.php'
+  })|raw }}
+{%- endmacro %}
+
+{% from _self import configWarning %}
+
+<h2 class="first">General Settings</h2>
+
+{{ forms.textField({
+    first: true,
+    required: true,
+    label: 'To Email',
+    instructions: 'The email address(es) that the contact form will send to. Separate multiple email addresses with commas.',
+    id: 'toEmail',
+    name: 'toEmail',
+    placeholder: 'joe.bloggs@email.co.uk, jane.bloggs@email.co.uk',
+    value: settings.toEmail,
+    disabled: 'toEmail' in overrides,
+    warning: 'toEmail' in overrides ? configWarning('toEmail')
+})}}
+
+<hr>
+
+<h2 class="first">Cron Job</h2>
+
+{{ forms.textField({
+    first: true,
+    label: 'Endpoint',
+    instructions: 'For this plugin to work you will need to set up a cron job that hits this endpoint to trigger the update check.',
+    value: siteUrl ~ 'actions/update-checker/check'
+})}}

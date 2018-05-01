@@ -1,0 +1,40 @@
+{
+    "name": "lukeyouell/craft-updatechecker",
+    "description": "Automated update checker that notifies you of any pending updates",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "update checker"
+    ],
+    "support": {
+        "docs": "https://github.com/lukeyouell/craft-updatechecker/blob/master/README.md",
+        "issues": "https://github.com/lukeyouell/craft-updatechecker/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luke Youell",
+            "homepage": "https://github.com/lukeyouell"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "lukeyouell\\updatechecker\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Update Checker",
+        "handle": "update-checker",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/lukeyouell/craft-updatechecker/master/CHANGELOG.md",
+        "class": "lukeyouell\\updatechecker\\UpdateChecker"
+    }
+}
