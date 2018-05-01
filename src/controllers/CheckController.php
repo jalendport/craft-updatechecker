@@ -11,7 +11,7 @@
 namespace lukeyouell\updatechecker\controllers;
 
 use lukeyouell\updatechecker\UpdateChecker;
-use lukeyouell\updatechecker\services\MailService;
+use lukeyouell\updatechecker\services\NotificationService;
 
 use Craft;
 use craft\models\Update;
@@ -67,7 +67,7 @@ class CheckController extends Controller
 
         // If there are updates send notification
         if ($res['total'] > 0) {
-          MailService::sendUpdateNotification($res);
+          NotificationService::handleNotifications($res);
         }
 
         return $this->asJson($res);
