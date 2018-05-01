@@ -2,7 +2,9 @@
 
 # Update Checker plugin for Craft CMS 3
 
-Automated update checker that notifies you of any pending updates
+Automated update checker that notifies you of any pending updates.
+
+![Screenshot](resources/img/screenshot.png)
 
 ## Requirements
 
