@@ -28,6 +28,10 @@ This plugin will check for package updates at regular intervals and notify you o
 
 ## Configuring Update Checker
 
+### Notifications
+
+You will be required to provide an email address where notifications should be sent to.
+
 ### Endpoint URL
 
 You can find your endpoint url located in the plugin settings page, which will look like this:
