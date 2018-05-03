@@ -4,7 +4,7 @@
 
 Automated update checker that notifies you of any pending updates.
 
-![Screenshot](resources/img/screenshot.png)
+![Screenshot](resources/img/screenshot-slack.png)
 
 ## Requirements
 
