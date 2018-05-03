@@ -64,7 +64,10 @@ Here’s what that config file might look like along with a list of all of the p
 <?php
 
 return [
+    'email' => true,
     'toEmail' => 'joe.bloggs@email.co.uk, jane.bloggs@email.co.uk',
+    'slack' => true,
+    'slackWebhook' => 'https://hooks.slack.com/services/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w',
 ];
 ```
 
