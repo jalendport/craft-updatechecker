@@ -98,24 +98,80 @@ class NotificationService extends Component
             'timeout' => 10,
         ]);
 
+        $releases = [];
+        $attachments = [];
+        $cmsName = $updates['updates']['cms']['name'] ?? 'Undefined';
+        $cmsReleases = $updates['updates']['cms']['releases'] ?? null;
+        $plugins = $updates['updates']['plugins'] ?? null;
+
+        // CMS updates
+        if ($cmsReleases) {
+            foreach ($cmsReleases as $release) {
+                $icon = $release['critical'] ? '⚠️' : '▪️';
+                $releases[] = "{$icon} {$release['version']}\n";
+            }
+
+            $cmsText = implode('', $releases);
+        } else {
+            $cmsText = "✅ Up-to-date!";
+        }
+
+        // CMS attachment
+        $attachments[] = [
+            'fallback' => "There are {$cmsName} updates pending.",
+            'title' => $cmsName,
+            'text' => $cmsText,
+        ];
+
+        // Plugin updates
+        if ($plugins) {
+            $releaseText = [];
+            $pluginText = [];
+
+            foreach ($plugins as $plugin) {
+                if ($plugin['releases']) {
+                    foreach ($plugin['releases'] as $release) {
+                        $icon = $release['critical'] ? '⚠️' : '▪️';
+                        $releaseText[] = "{$icon} {$release['version']}\n";
+                    }
+                } else {
+                    $releaseText[] = "✅ Up-to-date!\n";
+                }
+
+                $pluginText[] = "*{$plugin['name']}*\n".implode('', $releaseText)."\n";
+
+                $releaseText = [];
+            }
+
+            $pluginsText = implode('', $pluginText);
+
+            // Plugin attachment
+            $attachments[] = [
+                'fallback' => "There are plugin updates pending.",
+                'title' => 'Plugins',
+                'text' => $pluginsText,
+            ];
+        }
+
+        // View updates button
+        $attachments[] = [
+            'fallback' => "View updates at {$cpUrl}",
+            'actions' => [
+                [
+                  'type' => 'button',
+                  'text' => 'View updates',
+                  'url' => $cpUrl,
+                  'style' => 'primary',
+                ],
+            ],
+        ];
+
         $client->request('POST', $settings->slackWebhook, [
             'body' => Json::encode([
                 'username' => 'Update Checker',
                 'icon_emoji' => ':bell:',
-                'text' => 'There are '.$updates['total'].' package updates available for '.$system->name,
-                'attachments' => [
-                    [
-                        'fallback' => 'View updates at '.$cpUrl,
-                        'actions' => [
-                            [
-                              'type' => 'button',
-                              'text' => 'View updates',
-                              'url' => $cpUrl,
-                              'style' => 'primary',
-                            ],
-                        ],
-                    ],
-                ],
+                'text' => "There are {$updates['total']} package updates available for {$system->name}",
+                'attachments' => $attachments,
             ]),
         ]);
     }
