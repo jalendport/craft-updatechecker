@@ -25,13 +25,33 @@
 
 {% from _self import configWarning %}
 
-<h2 class="first">General Settings</h2>
+<h2 class="first">Cron Job</h2>
 
 {{ forms.textField({
     first: true,
-    required: true,
+    label: 'Endpoint',
+    instructions: 'For this plugin to work you will need to set up a cron job that hits this endpoint to trigger the update check.',
+    value: siteUrl ~ 'actions/update-checker/check'
+})}}
+
+<hr>
+
+<h2 class="first">Email Settings</h2>
+
+{{ forms.lightswitchField({
+  first:         true,
+  label:        'Enabled'|t,
+  id:           'email',
+  name:         'email',
+  on:           settings.email,
+  disabled:     'email' in overrides,
+  warning:      'email' in overrides ? configWarning('email')
+}) }}
+
+{{ forms.textField({
+    first: true,
     label: 'To Email',
-    instructions: 'The email address(es) that the contact form will send to. Separate multiple email addresses with commas.',
+    instructions: 'The email address(es) that the update notifications will be send to. Separate multiple email addresses with commas.',
     id: 'toEmail',
     name: 'toEmail',
     placeholder: 'joe.bloggs@email.co.uk, jane.bloggs@email.co.uk',
@@ -42,11 +62,26 @@
 
 <hr>
 
-<h2 class="first">Cron Job</h2>
+<h2 class="first">Slack Settings</h2>
+
+{{ forms.lightswitchField({
+  first:         true,
+  label:        'Enabled'|t,
+  id:           'slack',
+  name:         'slack',
+  on:           settings.slack,
+  disabled:     'slack' in overrides,
+  warning:      'slack' in overrides ? configWarning('slack')
+}) }}
 
 {{ forms.textField({
     first: true,
-    label: 'Endpoint',
-    instructions: 'For this plugin to work you will need to set up a cron job that hits this endpoint to trigger the update check.',
-    value: siteUrl ~ 'actions/update-checker/check'
+    label: 'Slack Webhook URL',
+    instructions: 'The webhook endpoint that the update notifications will be sent to. You can learn more about Slack webhooks <a href="https://api.slack.com/incoming-webhooks" target="_blank">here</a>.',
+    id: 'slackWebhook',
+    name: 'slackWebhook',
+    placeholder: 'https://hooks.slack.com/services/',
+    value: settings.slackWebhook,
+    disabled: 'slackWebhook' in overrides,
+    warning: 'slackWebhook' in overrides ? configWarning('slackWebhook')
 })}}
