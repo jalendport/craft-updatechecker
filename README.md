@@ -32,7 +32,7 @@ This plugin will check for package updates at regular intervals and notify you o
 
 ### Notifications
 
-You will be required to provide an email address where notifications should be sent to.
+You will be able to choose how you would like to receive notifications, you can receive them via email or Slack.
 
 ### Endpoint URL
 
