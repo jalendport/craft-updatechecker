@@ -39,13 +39,13 @@
 <h2 class="first">Email Settings</h2>
 
 {{ forms.lightswitchField({
-  first:         true,
-  label:        'Enabled'|t,
-  id:           'email',
-  name:         'email',
-  on:           settings.email,
-  disabled:     'email' in overrides,
-  warning:      'email' in overrides ? configWarning('email')
+    first:         true,
+    label:        'Enabled'|t,
+    id:           'email',
+    name:         'email',
+    on:           settings.email,
+    disabled:     'email' in overrides,
+    warning:      'email' in overrides ? configWarning('email')
 }) }}
 
 {{ forms.textField({
@@ -65,13 +65,13 @@
 <h2 class="first">Slack Settings</h2>
 
 {{ forms.lightswitchField({
-  first:         true,
-  label:        'Enabled'|t,
-  id:           'slack',
-  name:         'slack',
-  on:           settings.slack,
-  disabled:     'slack' in overrides,
-  warning:      'slack' in overrides ? configWarning('slack')
+    first:         true,
+    label:        'Enabled'|t,
+    id:           'slack',
+    name:         'slack',
+    on:           settings.slack,
+    disabled:     'slack' in overrides,
+    warning:      'slack' in overrides ? configWarning('slack')
 }) }}
 
 {{ forms.textField({
