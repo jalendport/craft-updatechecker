@@ -1,6 +1,7 @@
 <img src="src/icon.svg" alt="icon" width="100" height="100">
 
 ![](https://img.shields.io/github/release/lukeyouell/craft-updatechecker.svg?style=flat)
+![](https://img.shields.io/packagist/dt/lukeyouell/craft-updatechecker.svg?style=flat)
 
 # Update Checker plugin for Craft CMS 3
 
