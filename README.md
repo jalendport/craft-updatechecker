@@ -93,4 +93,6 @@ return [
 
 Some things to do, and ideas for potential features:
 
+- Ability to define which Slack channel to post updates to
+
 Brought to you by [Luke Youell](https://github.com/lukeyouell)
