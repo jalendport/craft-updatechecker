@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.2.0 - 2018-05-04
+
+### Added
+- Ability to secure endpoint with an access key
+
+### Changed
+- Improved documentation
+
 ## 1.1.1 - 2018-05-03
 
 ### Fixed

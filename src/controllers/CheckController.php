@@ -17,6 +17,9 @@ use Craft;
 use craft\models\Update;
 use craft\web\Controller;
 
+use yii\base\InvalidConfigException;
+use yii\web\BadRequestHttpException;
+
 /**
  * @author    Luke Youell
  * @package   UpdateChecker
@@ -34,7 +37,18 @@ class CheckController extends Controller
 
     public function actionIndex()
     {
+        // Get the plugin settings and make sure they validate before doing anything
+        $settings = UpdateChecker::$plugin->getSettings();
+        if (!$settings->validate()) {
+            throw new InvalidConfigException('Update Checker settings don’t validate.');
+        }
+
         $this->requireAcceptsJson();
+
+        // If access key exists then require it
+        if ($settings->accessKey) {
+          $this->requireAccessKey($settings->accessKey);
+        }
 
         $forceRefresh = true;
         $includeDetails = true;
@@ -75,6 +89,16 @@ class CheckController extends Controller
 
     // Private Methods
     // =========================================================================
+
+    public function requireAccessKey($accessKey = null)
+    {
+        $headers = Craft::$app->request->headers;
+        $auth = $headers->get('Access-Key');
+
+        if ($auth !== $accessKey) {
+          throw new BadRequestHttpException('Invalid access key.');
+        }
+    }
 
     private function _transformUpdate(bool $allowUpdates, Update $update, string $handle, string $name): array
     {

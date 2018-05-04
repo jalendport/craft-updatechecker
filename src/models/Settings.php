@@ -25,6 +25,8 @@ class Settings extends Model
     // Public Properties
     // =========================================================================
 
+    public $accessKey;
+
     public $email = true;
 
     public $toEmail;
@@ -40,7 +42,7 @@ class Settings extends Model
     {
         return [
             [['email', 'slack'], 'boolean'],
-            [['toEmail', 'slackWebhook'], 'string'],
+            [['accessKey', 'toEmail', 'slackWebhook'], 'string'],
         ];
     }
 }

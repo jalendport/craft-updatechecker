@@ -24,15 +24,19 @@ To install the plugin, either install via the plugin store or follow these instr
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Update Checker.
 
-## Update Checker Overview
+## Notification Methods
 
-This plugin will check for package updates at regular intervals and notify you of any pending updates.
+You can choose from a combination of the following notification methods:
 
-## Configuring Update Checker
+### Email
 
-### Notifications
+An email will be sent to a list of comma-separated email addresses.
 
-You will be able to choose how you would like to receive notifications, you can receive them via email or Slack.
+### Slack
+
+Notifications will be sent to a Slack Channel of your choosing. This requires the creation of a [Slack Webhook](https://api.slack.com/incoming-webhooks) which you can do [here](https://my.slack.com/services/new/incoming-webhook/).
+
+## Endpoint
 
 ### Endpoint URL
 
@@ -42,9 +46,19 @@ You can find your endpoint url located in the plugin settings page, which will l
 https://www.yoursite.co.uk/actions/update-checker/check
 ```
 
-### Cron Job
+### Securing Your Endpoint
 
-This plugin relies on the controller being hit on a regular basis, which will require a cron job. If you aren't familiar with setting up cron jobs I highly recommend using a service such as [SetCronJob](https://www.setcronjob.com).
+You can secure your endpoint with an access key which is set in the plugin settings.
+
+After defining your access key you will need to include it in your requests in the form of the following header:
+
+| Header Name | Header Value |
+| ----------- | ------------ |
+| `Access-Key` | `access key value` |
+
+## Cron Job
+
+Update Checker relies on the endpoint being hit on a regular basis, which will require a cron job. If you aren't familiar with setting up cron jobs I highly recommend using a service such as [SetCronJob](https://www.setcronjob.com).
 
 Please note that all HTTP requests must contain the following headers:
 
@@ -64,6 +78,7 @@ Here’s what that config file might look like along with a list of all of the p
 <?php
 
 return [
+    'accessKey' => '6AIXCV7FoF5pvN4BiNE9xANtFUcy3CUr',
     'email' => true,
     'toEmail' => 'joe.bloggs@email.co.uk, jane.bloggs@email.co.uk',
     'slack' => true,
@@ -74,7 +89,5 @@ return [
 ## Update Checker Roadmap
 
 Some things to do, and ideas for potential features:
-
-- Additional notification methods
 
 Brought to you by [Luke Youell](https://github.com/lukeyouell)

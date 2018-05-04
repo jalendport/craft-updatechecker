@@ -20,6 +20,7 @@ use craft\helpers\UrlHelper;
 use craft\mail\Message;
 use craft\web\View;
 
+use yii\base\InvalidConfigException;
 use yii\helpers\Markdown;
 
 /**
