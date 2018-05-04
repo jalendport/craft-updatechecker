@@ -34,7 +34,9 @@ An email will be sent to a list of comma-separated email addresses.
 
 ### Slack
 
-Notifications will be sent to a Slack Channel of your choosing. This requires the creation of a [Slack Webhook](https://api.slack.com/incoming-webhooks) which you can do [here](https://my.slack.com/services/new/incoming-webhook/).
+Notifications will be sent to a Slack Channel of your choosing.
+
+This requires the creation of a [Slack Webhook](https://api.slack.com/incoming-webhooks), which you can do [here](https://my.slack.com/services/new/incoming-webhook/).
 
 ## Endpoint
 
@@ -48,23 +50,24 @@ https://www.yoursite.co.uk/actions/update-checker/check
 
 ### Securing Your Endpoint
 
-You can secure your endpoint with an access key which is set in the plugin settings.
+You can secure your endpoint with an access key, which is set in the plugin settings.
 
 After defining your access key you will need to include it in your requests in the form of the following header:
 
 | Header Name | Header Value |
 | ----------- | ------------ |
-| `Access-Key` | `access key value` |
+| `Access-Key` | `access-key-value` |
 
 ## Cron Job
 
 Update Checker relies on the endpoint being hit on a regular basis, which will require a cron job. If you aren't familiar with setting up cron jobs I highly recommend using a service such as [SetCronJob](https://www.setcronjob.com).
 
-Please note that all HTTP requests must contain the following headers:
+HTTP requests headers:
 
-| Header Name | Header Value |
-| ----------- | ------------ |
-| `Accept` | `application/json` |
+| Header Name | Header Value | Required |
+| ----------- | ------------ | -------- |
+| `Accept` | `application/json` | Required |
+| `Access-Key` | `access-key-value` | Optional |
 
 Feel free to set the cron job to check for updates as often as you like.
 
