@@ -31,7 +31,23 @@
     first: true,
     label: 'Endpoint',
     instructions: 'For this plugin to work you will need to set up a cron job that hits this endpoint to trigger the update check.',
-    value: siteUrl ~ 'actions/update-checker/check'
+    value: siteUrl ~ 'actions/update-checker/check',
+})}}
+
+<hr>
+
+<h2 class="first">Security Settings</h2>
+
+{{ forms.textField({
+    first: true,
+    label: 'Access Key',
+    instructions: 'Secure your endpoint with an access key. You can generate keys using <a href="https://randomkeygen.com" target="_blank">RandomKeygen</a>.',
+    id: 'accessKey',
+    name: 'accessKey',
+    placeholder: '1NUwWdzAbBEZ3HavWV6M5dRCA5SufXPP',
+    value: settings.accessKey,
+    disabled: 'accessKey' in overrides,
+    warning: 'accessKey' in overrides ? configWarning('accessKey'),
 })}}
 
 <hr>
@@ -45,7 +61,7 @@
     name:         'email',
     on:           settings.email,
     disabled:     'email' in overrides,
-    warning:      'email' in overrides ? configWarning('email')
+    warning:      'email' in overrides ? configWarning('email'),
 }) }}
 
 {{ forms.textField({
@@ -57,7 +73,7 @@
     placeholder: 'joe.bloggs@email.co.uk, jane.bloggs@email.co.uk',
     value: settings.toEmail,
     disabled: 'toEmail' in overrides,
-    warning: 'toEmail' in overrides ? configWarning('toEmail')
+    warning: 'toEmail' in overrides ? configWarning('toEmail'),
 })}}
 
 <hr>
@@ -71,7 +87,7 @@
     name:         'slack',
     on:           settings.slack,
     disabled:     'slack' in overrides,
-    warning:      'slack' in overrides ? configWarning('slack')
+    warning:      'slack' in overrides ? configWarning('slack'),
 }) }}
 
 {{ forms.textField({
@@ -83,5 +99,5 @@
     placeholder: 'https://hooks.slack.com/services/',
     value: settings.slackWebhook,
     disabled: 'slackWebhook' in overrides,
-    warning: 'slackWebhook' in overrides ? configWarning('slackWebhook')
+    warning: 'slackWebhook' in overrides ? configWarning('slackWebhook'),
 })}}
