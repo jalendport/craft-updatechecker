@@ -7,6 +7,12 @@
 
 Automated update checker that notifies you of any pending updates.
 
+## Support Open Source
+
+This plugin is licensed under an MIT license, which means that it's completely free open source software, and you can use it for whatever and however you wish. If you find this plugin useful, please consider supporting my work by buying me a coffee ☕ 😊
+
+[<img height="36" src="https://az743702.vo.msecnd.net/cdn/kofi3.png" alt="Buy Me a Coffee at ko-fi.com">](https://ko-fi.com/lukeyouell)
+
 ![Screenshot](resources/img/screenshot-slack.png)
 
 ## Requirements
