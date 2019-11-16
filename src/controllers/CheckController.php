@@ -4,14 +4,14 @@
  *
  * Automated update checker that notifies you of any pending updates
  *
- * @link      https://github.com/lukeyouell
- * @copyright Copyright (c) 2018 Luke Youell
+ * @link      https://github.com/jalendport
+ * @copyright Copyright (c) 2018 Jalen Davenport
  */
 
-namespace lukeyouell\updatechecker\controllers;
+namespace jalendport\updatechecker\controllers;
 
-use lukeyouell\updatechecker\UpdateChecker;
-use lukeyouell\updatechecker\services\NotificationService;
+use jalendport\updatechecker\UpdateChecker;
+use jalendport\updatechecker\services\NotificationService;
 
 use Craft;
 use craft\models\Update;
@@ -21,7 +21,7 @@ use yii\base\InvalidConfigException;
 use yii\web\BadRequestHttpException;
 
 /**
- * @author    Luke Youell
+ * @author    Jalen Davenport
  * @package   UpdateChecker
  * @since     1.0.0
  */

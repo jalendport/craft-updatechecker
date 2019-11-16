@@ -1,7 +1,7 @@
 <img src="src/icon.svg" alt="icon" width="100" height="100">
 
-![](https://img.shields.io/github/release/lukeyouell/craft-updatechecker.svg?style=flat)
-![](https://img.shields.io/packagist/dt/lukeyouell/craft-updatechecker.svg?style=flat)
+![](https://img.shields.io/github/release/jalendport/craft-updatechecker.svg?style=flat)
+![](https://img.shields.io/packagist/dt/jalendport/craft-updatechecker.svg?style=flat)
 
 # Update Checker plugin for Craft CMS 3
 
@@ -11,7 +11,7 @@ Automated update checker that notifies you of any pending updates.
 
 This plugin is licensed under an MIT license, which means that it's completely free open source software, and you can use it for whatever and however you wish. If you find this plugin useful, please consider supporting my work by buying me a beer 🍻😊
 
-[![Beerpay](https://beerpay.io/lukeyouell/craft-updatechecker/badge.svg?style=beer-square)](https://beerpay.io/lukeyouell/craft-updatechecker)
+[![Beerpay](https://beerpay.io/jalendport/craft-updatechecker/badge.svg?style=beer-square)](https://beerpay.io/lukeyouell/craft-updatechecker)
 
 ![Screenshot](resources/img/screenshot-slack.png)
 
@@ -29,7 +29,7 @@ To install the plugin, either install via the plugin store or follow these instr
 
 2. Then tell Composer to load the plugin:
 
-        composer require lukeyouell/craft-updatechecker
+        composer require jalendport/craft-updatechecker
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Update Checker.
 

@@ -4,13 +4,13 @@
  *
  * Automated update checker that notifies you of any pending updates
  *
- * @link      https://github.com/lukeyouell
- * @copyright Copyright (c) 2018 Luke Youell
+ * @link      https://github.com/jalendport
+ * @copyright Copyright (c) 2018 Jalen Davenport
  */
 
-namespace lukeyouell\updatechecker\services;
+namespace jalendport\updatechecker\services;
 
-use lukeyouell\updatechecker\UpdateChecker;
+use jalendport\updatechecker\UpdateChecker;
 
 use Craft;
 use craft\base\Component;
@@ -24,7 +24,7 @@ use yii\base\InvalidConfigException;
 use yii\helpers\Markdown;
 
 /**
- * @author    Luke Youell
+ * @author    Jalen Davenport
  * @package   UpdateChecker
  * @since     1.0.0
  */

@@ -4,13 +4,13 @@
  *
  * Automated update checker that notifies you of any pending updates
  *
- * @link      https://github.com/lukeyouell
- * @copyright Copyright (c) 2018 Luke Youell
+ * @link      https://github.com/jalendport
+ * @copyright Copyright (c) 2018 Jalen Davenport
  */
 
-namespace lukeyouell\updatechecker;
+namespace jalendport\updatechecker;
 
-use lukeyouell\updatechecker\models\Settings;
+use jalendport\updatechecker\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
@@ -24,7 +24,7 @@ use yii\base\Event;
 /**
  * Class UpdateChecker
  *
- * @author    Luke Youell
+ * @author    Jalen Davenport
  * @package   UpdateChecker
  * @since     1.0.0
  *
