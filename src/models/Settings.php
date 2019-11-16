@@ -4,19 +4,19 @@
  *
  * Automated update checker that notifies you of any pending updates
  *
- * @link      https://github.com/lukeyouell
- * @copyright Copyright (c) 2018 Luke Youell
+ * @link      https://github.com/jalendport
+ * @copyright Copyright (c) 2018 Jalen Davenport
  */
 
-namespace lukeyouell\updatechecker\models;
+namespace jalendport\updatechecker\models;
 
-use lukeyouell\updatechecker\UpdateChecker;
+use jalendport\updatechecker\UpdateChecker;
 
 use Craft;
 use craft\base\Model;
 
 /**
- * @author    Luke Youell
+ * @author    Jalen Davenport
  * @package   UpdateChecker
  * @since     1.0.0
  */
