@@ -65,7 +65,7 @@ class CheckController extends Controller
 
         if ($includeDetails) {
             $res['updates'] = [
-                'cms' => $this->_transformUpdate($allowUpdates, $updates->cms, 'craft', 'Craft CMS'),
+                'cms' => $this->_transformUpdate($allowUpdates, $updates->cms, 'craft', 'Craft CMS', Craft::$app->version),
                 'plugins' => [],
             ];
 
@@ -74,7 +74,7 @@ class CheckController extends Controller
             foreach ($updates->plugins as $handle => $update) {
                 if (($plugin = $pluginsService->getPlugin($handle)) !== null) {
                     /** @var Plugin $plugin */
-                    $res['updates']['plugins'][] = $this->_transformUpdate($allowUpdates, $update, $handle, $plugin->name);
+                    $res['updates']['plugins'][] = $this->_transformUpdate($allowUpdates, $update, $handle, $plugin->name, $plugin->version);
                 }
             }
         }
@@ -100,11 +100,12 @@ class CheckController extends Controller
         }
     }
 
-    private function _transformUpdate(bool $allowUpdates, Update $update, string $handle, string $name): array
+    private function _transformUpdate(bool $allowUpdates, Update $update, string $handle, string $name, string $currentVersion): array
     {
         $arr = $update->toArray();
         $arr['handle'] = $handle;
         $arr['name'] = $name;
+        $arr['currentVersion'] = $currentVersion;
         $arr['latestVersion'] = $update->getLatest()->version ?? null;
 
         if ($update->status === Update::STATUS_EXPIRED) {
