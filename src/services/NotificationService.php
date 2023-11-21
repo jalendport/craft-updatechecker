@@ -67,7 +67,7 @@ class NotificationService extends Component
         $toEmails = is_string($settings->toEmail) ? StringHelper::split($settings->toEmail) : $settings->toEmail;
         $subject = '🔔 There are '.$updates['total'].' package updates available for '.$system->name;
 
-        / Set template mode
+        // Set template mode
         $initialTemplateMode = Craft::$app->view->getTemplateMode();
         Craft::$app->view->setTemplateMode($templateMode);
 
