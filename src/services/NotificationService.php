@@ -67,17 +67,23 @@ class NotificationService extends Component
         $toEmails = is_string($settings->toEmail) ? StringHelper::split($settings->toEmail) : $settings->toEmail;
         $subject = '🔔 There are '.$updates['total'].' package updates available for '.$system->name;
 
-        // Set template
-        \Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_CP);
+        // Set template mode
+        $initialTemplateMode = Craft::$app->view->getTemplateMode();
+        Craft::$app->view->setTemplateMode($templateMode);
+
+        // Generate email HTML
         $html = Craft::$app->view->renderTemplate(
-            'update-checker/emails/updateNotification',
+            $template,
             [
-              'system' => $system,
-              'cpUrl' => $cpUrl,
-              'updates' => $updates,
+                'system' => $system,
+                'cpUrl' => $cpUrl,
+                'updates' => $updates,
             ]
         );
         $html = Markdown::process($html, 'gfm');
+
+        // Restore template mode
+        Craft::$app->view->setTemplateMode($initialTemplateMode);
 
         // Send the email
         $mailer = Craft::$app->getMailer();
