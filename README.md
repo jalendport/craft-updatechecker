@@ -1,3 +1,8 @@
+> **Warning**  
+> This plugin has been abandoned.
+
+---
+
 <img src="src/icon.svg" alt="icon" width="100" height="100">
 
 ![](https://img.shields.io/github/release/jalendport/craft-updatechecker.svg?style=flat)
